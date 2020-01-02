@@ -37,18 +37,31 @@ using namespace NanoID;
 
 int main(int argc, char** argv)
 {
-    printf("Program Name Is: %s\n",argv[0]);
+    if (argc < 2)
+    {
+        cout << "Give a command as input. Possible commands are:" << endl;
+        cout << "   train => Train a new ResNet" << endl;
+        return 1;
+    }
+
+    if (std::string(argv[1]) == "train") {
+        if (argc < 7)
+        {
+            cout << "ERROR: To few arguments. Exiting..." << endl;
+            return 2;
+        }
+        auto t = new Trainer();
+        // threshold should be 10000
+        auto net = t->Train(argv[2], atoi(argv[3]), atoi(argv[4]), atoi(argv[5]));
+        t->SaveNet(net, argv[6]);
+        return 0;
+    } else {
+        cout << "ERROR: " << argv[1] << " is not a valid command. Exiting..." << endl;
+        return 2;
+    }
 
     cout << "Detected " << System::GetCores() << " cpu cores." << endl;
 
-    auto t = new Trainer();
-    // threshold should be 10000
-    auto net = t->Train(argv[1], 5, 5, 300);
-    t->SaveNet(net, "johns.dat");
-
-
-
-    return 0;
 
     if (argc != 2)
     {
@@ -59,7 +72,7 @@ int main(int argc, char** argv)
         cout << "   ./NanoID johns" << endl;
         return 1;
     }
-    
+
 //    // Now, just to show an example of how you would use the network, let's check how well
 //    // it performs on the training data.
 //    dlib::rand rnd(time(0));
