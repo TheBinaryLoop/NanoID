@@ -4,7 +4,10 @@
 //
 
 #include "System.h"
+namespace NanoID {
 
-unsigned int System::GetCores() {
-    return std::thread::hardware_concurrency();
-}
+    unsigned int System::GetCores() {
+        return std::thread::hardware_concurrency();
+    }
+
+};

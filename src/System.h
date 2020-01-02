@@ -7,11 +7,12 @@
 #define NANOID_SYSTEM_H
 
 #include <thread>
+namespace NanoID {
+    class System {
+    public:
+        static unsigned int GetCores();
+    };
 
-class System {
-public:
-    static unsigned int GetCores();
 };
-
 
 #endif //NANOID_SYSTEM_H

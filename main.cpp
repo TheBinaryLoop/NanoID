@@ -33,6 +33,7 @@
 
 using namespace dlib;
 using namespace std;
+using namespace NanoID;
 
 // ----------------------------------------------------------------------------------------
 
@@ -198,6 +199,8 @@ using anet_type = loss_metric<fc_no_bias<128,avg_pool_everything<
 
 int main(int argc, char** argv)
 {
+    printf("Program Name Is: %s\n",argv[0]);
+
     cout << "Detected " << System::GetCores() << " cpu cores." << endl;
     return 0;
 
