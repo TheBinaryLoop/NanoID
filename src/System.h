@@ -13,6 +13,6 @@ namespace NanoID {
         static unsigned int GetCores();
     };
 
-};
+}
 
 #endif //NANOID_SYSTEM_H

@@ -10,4 +10,4 @@ namespace NanoID {
         return std::thread::hardware_concurrency();
     }
 
-};
+}

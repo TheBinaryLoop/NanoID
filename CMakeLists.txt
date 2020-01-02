@@ -16,5 +16,5 @@ FetchContent_Declare(dlib
 FetchContent_MakeAvailable(dlib)
 
 
-add_executable(NanoID main.cpp src/System.cpp src/System.h)
+add_executable(NanoID main.cpp src/System.cpp src/System.h src/Trainer.cpp src/Trainer.h includes/types.h)
 target_link_libraries(NanoID dlib::dlib ${OpenCV_LIBS})
